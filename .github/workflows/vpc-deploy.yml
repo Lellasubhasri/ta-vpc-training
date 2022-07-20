@@ -10,28 +10,28 @@ jobs:
       packages: write
       contents: read
       id-token: write
-  steps:
-    - name: Clone our repository
-      uses: actions/checkout@v3
+    steps:
+      - name: Clone our repository
+        uses: actions/checkout@v3
 
-    - name: AWS Authentication
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        role-to-assume: arn:aws:iam::398649119307:role/github-actions-oidc
-        aws-region: eu-west-1
-        role-session-name: GithubVPCDeploy
+      - name: AWS Authentication
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::398649119307:role/github-actions-oidc
+          aws-region: eu-west-1
+          role-session-name: GithubVPCDeploy
 
-    -name: Terraform Set up
-      uses: hashicorp/setup-terraform@v1
+      - name: Terraform Set up
+        uses: hashicorp/setup-terraform@v1
     
-    -name: Terraform initilization
-      run: terraform init
+      - name: Terraform initilization
+        run: terraform init
 
-    -name: Terraform planning
-      run: terraform plan
+      - name: Terraform planning
+        run: terraform plan
 
-    -name: Terraform applying
-      run: terraform apply -auto-approve
+      - name: Terraform applying
+        run: terraform apply -auto-approve
 
 
 
