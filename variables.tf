@@ -3,6 +3,11 @@ variable "vpc_name" {
   type        = string
 }
 
+variable "aws_region" {
+  description = "resources will deploy here"
+  type = string  
+}
+
 variable "vpc_cidr" {
   description = "this is cidr address"
 
@@ -17,5 +22,6 @@ variable "cidr_private" {
 }
 
 variable "cidr_data" {
+  type = map
   description = "this is for CIDR data subnet"
 }

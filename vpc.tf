@@ -9,4 +9,3 @@ resource "aws_vpc" "lab-vpc" {
 resource "aws_eip" "nat_eip" {
   vpc = true
 }
-
